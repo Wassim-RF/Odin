@@ -52,21 +52,25 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     @if (session('error'))
         <script>
             Toastify({
-                text: "{{ session('error') }}",
-                duration: 3000,
+                text: "❌ {{ session('error') }}",
+                duration: 4000,
                 close: true,
                 gravity: "top",
-                position: "left",
-                stopOnFocus: true, // Prevents dismissing of toast on hover
+                position: "right",
+                stopOnFocus: true,
                 style: {
-                    background: "linear-gradient(to right, #00b09b, #96c93d)",
-                },
+                    background: "linear-gradient(135deg, #ff416c, #ff4b2b)",
+                    borderRadius: "12px",
+                    padding: "12px 18px",
+                    fontWeight: "500",
+                    boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
+                }
             }).showToast();
         </script>
-    @endif
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+@endif
 </body>
 </html>

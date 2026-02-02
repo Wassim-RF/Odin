@@ -1,13 +1,10 @@
 <?php
+    namespace App\Services;
 
-namespace App\Services;
+    use App\Models\User;
 
-use Illuminate\Support\ServiceProvider;
-use App\Models\User;
-
-class userServices extends ServiceProvider
-{
-    public function existeUser(string $email) {
-        return User::where('email' , $email)->first();
+    class userServices {
+        public function existeUser(string $email) {
+            return User::where('email' , $email)->first();
+        }
     }
-}

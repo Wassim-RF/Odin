@@ -1,24 +1,10 @@
 <?php
+    namespace App\Services;
 
-namespace App\Services;
+    use App\Models\User;
 
-use Illuminate\Support\ServiceProvider;
-
-class authServices extends ServiceProvider
-{
-    /**
-     * Register services.
-     */
-    public function register(): void
-    {
-        //
+    class AuthServices {
+        public function createAccount(array $data) {
+            return User::create($data);
+        }
     }
-
-    /**
-     * Bootstrap services.
-     */
-    public function boot(): void
-    {
-        //
-    }
-}

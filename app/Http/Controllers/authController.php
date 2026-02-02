@@ -8,11 +8,16 @@ use Illuminate\Http\Request;
 use App\Services\authServices;
 use App\Services\userServices;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\registerRequest;
 
 class authController extends Controller
 {
     public function showLogin() {
         return(view('auth.login'));
+    }
+
+    public function showRegister() {
+        return(view('auth.register'));
     }
 
 
@@ -30,5 +35,23 @@ class authController extends Controller
         Auth::login($user);
 
         return redirect('/home')->with('success', 'Bienvenue ' . $user->name . '!');
+    }
+
+    public function register(registerRequest $registerRequest , userServices $userServices , authServices $authServices) {
+        $user = $userServices->existeUser($registerRequest->email);
+
+        if($user) {
+            return redirect()->back()->with('error' , 'Ce email est existe!');
+        }
+
+        $data = [
+            'name' => $registerRequest->name,
+            'email' => $registerRequest->email,
+            'password' => Hash::make($registerRequest->password)
+        ];
+
+        $authServices->createAccount($data);
+
+        return redirect('/login')->with('success' , 'Vous creer votre compte en succe');
     }
 }
