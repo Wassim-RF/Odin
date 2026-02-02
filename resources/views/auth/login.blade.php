@@ -21,7 +21,7 @@
                 <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                     <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 </div>
-                <input type="email" name="email_login_input" placeholder="name@example.com" class="block w-full pl-12 pr-5 py-4 bg-slate-50 border border-slate-200 rounded-[20px] focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all outline-none text-slate-700">
+                <input type="email" name="email" placeholder="name@example.com" class="block w-full pl-12 pr-5 py-4 bg-slate-50 border border-slate-200 rounded-[20px] focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all outline-none text-slate-700">
             </div>
 
             <div class="space-y-2"> 
@@ -31,7 +31,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                         </svg>
                     </div>
-                    <input type="password" id="password_login_input" placeholder="********" class="block w-full pl-12 pr-5 py-4 bg-slate-50 border border-slate-200 rounded-[20px] focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all outline-none text-slate-700 leading-tight">
+                    <input type="password" name="password" placeholder="********" class="block w-full pl-12 pr-5 py-4 bg-slate-50 border border-slate-200 rounded-[20px] focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all outline-none text-slate-700 leading-tight">
                 </div>
                 <div class="flex justify-end px-2">
                     <a href="/password/reset" class="text-sm font-medium text-slate-400 hover:text-blue-600 transition-colors">
@@ -47,9 +47,26 @@
         </form>
 
         <div class="mt-12 flex justify-between items-center text-sm text-slate-400">
-            <span>Demo UI only (no backend)</span>
+            <span>Demo UI</span>
             <span>© 2026 Odin</span>
         </div>
-</div>
+    </div>
+
+    @if (session('error'))
+        <script>
+            Toastify({
+                text: "{{ session('error') }}",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "left",
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+            }).showToast();
+        </script>
+    @endif
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>
