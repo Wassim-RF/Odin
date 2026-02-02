@@ -11,4 +11,8 @@ class userController extends Controller
         exit();
     }
 
+    public function showHome() {
+        return view('home');
+    }
+
 }

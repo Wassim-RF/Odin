@@ -9,5 +9,6 @@ use App\Http\Controllers\authController;
 Route::get('/', [userController::class , "index"]);
 Route::get('/login' , [authController::class , "showLogin"]);
 Route::get('/register' , [authController::class , "showRegister"]);
-Route::post('/login' , [authController::class , "login"])->name('auth.login')->middleware(CheckAccountStatus::class);
+Route::post('/login' , [authController::class , "login"])->name('auth.login');
 Route::post('/register' , [authController::class , "register"])->name('auth.register');
+Route::get('/home' , [userController::class , 'showHome'])->middleware(CheckAccountStatus::class);
