@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 class userController extends Controller
 {
     public function index() {
-        header("Location: /login");
-        exit();
+        return redirect('/login');
     }
 
     public function showHome() {

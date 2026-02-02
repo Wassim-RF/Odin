@@ -13,10 +13,20 @@
         </div>
 
         <nav class="hidden md:flex space-x-8">
-            <a href="/home" class="text-gray-900 px-3 py-2 text-sm font-medium border-b-2 border-indigo-600">Acceil</a>
-            <a href="#" class="text-gray-500 hover:text-indigo-600 px-3 py-2 text-sm font-medium transition-colors">Catégories</a>
-            <a href="#" class="text-gray-500 hover:text-indigo-600 px-3 py-2 text-sm font-medium transition-colors">Liens</a>
-            <a href="#" class="text-gray-500 hover:text-indigo-600 px-3 py-2 text-sm font-medium transition-colors">Tags</a>
+            <a href="/home" class="text-gray-900 px-3 py-2 text-sm font-medium border-b-2 border-[#F59F0A]">Acceil</a>
+            <a href="#" class="text-gray-500 hover:text-[#F59F0A] px-3 py-2 text-sm font-medium transition-colors">Catégories</a>
+            <a href="#" class="text-gray-500 hover:text-[#F59F0A] px-3 py-2 text-sm font-medium transition-colors">Liens</a>
+            <a href="#" class="text-gray-500 hover:text-[#F59F0A] px-3 py-2 text-sm font-medium transition-colors">Tags</a>
         </nav>
+
+        <form action="{{ route('auth.logout') }}" method="POST" class="flex items-center">
+            @csrf
+            <button type="submit" class="flex items-center gap-2 bg-red-50 text-red-600 hover:bg-red-100 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer">
+                <span>Logout</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                </svg>
+            </button>
+        </form>
     </div>
 </header>
