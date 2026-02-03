@@ -79,7 +79,7 @@
 
             <li class="group flex items-center justify-between p-4 hover:bg-gray-50 transition-colors cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <svg class="w-10 h-10 text-pink-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.605 4.61a8.502 8.502 0 0 1 1.93 5.314c-.281-.054-3.101-.629-5.943-.271-1.065-1.941-2.067-3.646-2.083-3.674-.015-.028 6.096-1.369 6.096-1.369zm-7.825.86c.015.027 1.05 1.782 2.115 3.766-3.178 1.057-6.525 1.352-8.156 1.412a8.51 8.51 0 0 1 6.041-5.178zM4.09 13.565c.164-.047 3.32-.883 8.164-1.39.293.754.557 1.517.778 2.274a17.206 17.206 0 0 1-5.69 2.508 8.47 8.47 0 0 1-3.252-3.392zm4.72 4.418c2.476-.713 4.49-1.636 5.86-2.585.556 1.474.922 2.885.966 3.06l-.004.017a8.497 8.497 0 0 1-6.822-.492zm8.59-1.127c-.044-.175-.419-1.638-.984-3.14 2.883-.171 5.304.576 5.568.665a8.48 8.48 0 0 1-4.584 2.475z"/></svg>
                     </div>
                     <div>
@@ -95,7 +95,7 @@
 
             <li class="group flex items-center justify-between p-4 hover:bg-gray-50 transition-colors cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="w-10 h-10 bg-blue-600 rounded-md flex items-center justify-center text-white font-bold text-lg tracking-tighter">TS</div>
                     </div>
                     <div>
@@ -111,7 +111,7 @@
 
             <li class="group flex items-center justify-between p-4 hover:bg-gray-50 transition-colors cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <svg class="w-10 h-10 text-sky-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
                     </div>
                     <div>
@@ -127,7 +127,7 @@
 
             <li class="group flex items-center justify-between p-4 hover:bg-gray-50 transition-colors cursor-pointer">
                 <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <svg class="w-10 h-10 text-cyan-400" viewBox="-11.5 -10.23174 23 20.46348"><circle cx="0" cy="0" r="2.05" fill="currentColor"/><g stroke="currentColor" stroke-width="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
                     </div>
                     <div>
