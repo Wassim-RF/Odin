@@ -7,6 +7,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LinksController;
+use App\Http\Controllers\TagsController;
 
 
 //get
@@ -21,3 +22,4 @@ Route::post('/register' , [authController::class , "register"])->name('auth.regi
 Route::post('/logout' , [authController::class , "logout"])->name('auth.logout');
 Route::post('/addCategorie' , [CategoriesController::class , 'store'])->name('create.categorie');
 Route::post('/addLink' , [LinksController::class , 'store'])->name('create.link');
+Route::post('/addTag' , [TagsController::class , 'store'])->name('create.tag');

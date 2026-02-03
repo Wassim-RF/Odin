@@ -1,5 +1,5 @@
 <div class="fixed inset-0 hidden items-center justify-center bg-gray-900/60 backdrop-blur-sm z-50" id="modale_addTag_pop">
-    <form action="#" method="POST" id="tag_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
+    <form action="{{ route('create.tag') }}" method="POST" id="tag_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
         @csrf
         
         <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
@@ -11,7 +11,7 @@
             
             <div>
                 <label for="tag_name" class="block text-sm font-semibold text-gray-700 mb-1.5">Nom du Tag</label>
-                <input type="text" id="tag_name" name="name" required
+                <input type="text" id="tag_name" name="tag_name" required
                     class="block w-full rounded-xl border-gray-300 border px-4 py-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none sm:text-sm" 
                     placeholder="Ex: Laravel, Design, News...">
             </div>

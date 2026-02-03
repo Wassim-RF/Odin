@@ -3,8 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\tagRequest;
+use App\Services\TagServices;
 
 class TagsController extends Controller
 {
-    //
+    public function store(tagRequest $tagRequest , TagServices $tagServices) {
+        $data = [
+            'name' => $tagRequest->tag_name,
+            'user_id' => auth()->user()->id
+        ];
+
+        $tagServices->createTag($data);
+
+        return redirect()->back();
+    }
 }

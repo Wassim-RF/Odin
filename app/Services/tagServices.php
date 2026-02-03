@@ -8,4 +8,8 @@
         public function tagNumber() {
             return Tags::where('user_id' , session('user_id'))->count();
         }
+
+        public function createTag(array $data) {
+            return Tags::create($data);
+        }
     }

@@ -56,7 +56,7 @@
     @if (session('error'))
         <script>
             Toastify({
-                text: "❌ {{ session('error') }}",
+                text: "{{ session('error') }}",
                 duration: 4000,
                 close: true,
                 gravity: "top",
