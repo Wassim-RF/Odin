@@ -79,7 +79,7 @@
                 </div>
 
             </button>
-            <button id="addCategorie_Modal_button" class="group w-full h-[200px] bg-white border-2 border-dashed border-gray-200 shadow-sm rounded-2xl cursor-pointer hover:border-[#21C45D] hover:shadow-lg transition-all flex flex-col items-center justify-center gap-3">
+            <button id="addTag_Modal_button" class="group w-full h-[200px] bg-white border-2 border-dashed border-gray-200 shadow-sm rounded-2xl cursor-pointer hover:border-[#21C45D] hover:shadow-lg transition-all flex flex-col items-center justify-center gap-3">
                 <div class="w-14 h-14 bg-[#E8F9EE] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#21C45D"><g fill="none" stroke="#21C45D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9 5H2v7l6.29 6.29c.94.94 2.48.94 3.42 0l3.58-3.58c.94-.94.94-2.48 0-3.42L9 5ZM6 9.01V9"/><path d="m15 5l6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/></g></svg>
@@ -193,6 +193,7 @@
         </div>
         @include('modales.addCategories')
         @include('modales.addLinks')
+        @include('modales.addTag')
     </main>
     <script type="module" src="{{ asset('js/script.js') }}"></script>
 </body>

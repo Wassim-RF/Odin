@@ -21,3 +21,15 @@ export function annulerAddLienModal() {
 
     modale_addLink_pop.classList.replace("flex" , "hidden");
 }
+
+export function addTagModals() {
+    const modale_addTag_pop = document.getElementById("modale_addTag_pop");
+
+    modale_addTag_pop.classList.replace("hidden" , "flex");
+}
+
+export function annulerAddTagModal() {
+    const modale_addTag_pop = document.getElementById("modale_addTag_pop");
+
+    modale_addTag_pop.classList.replace("flex" , "hidden");
+}
