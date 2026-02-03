@@ -34,6 +34,14 @@ class authController extends Controller
 
         Auth::login($user);
 
+        $loginRequest->session()->regenerate();
+
+        session([
+            'user_id' => $user->id,
+            'user_name' => $user->name,
+            'user_email' => $user->email
+        ]);
+
         return redirect('/home')->with('success', 'Bienvenue ' . $user->name . '!');
     }
 
@@ -50,9 +58,19 @@ class authController extends Controller
             'password' => Hash::make($registerRequest->password)
         ];
 
-        $authServices->createAccount($data);
+        $newUser = $authServices->createAccount($data);
 
-        return redirect('/login')->with('success' , 'Vous creer votre compte en succe');
+        Auth::login($newUser);
+
+        $registerRequest->session()->regenerate();
+
+        session([
+            'user_id' => $newUser->id,
+            'user_name' => $newUser->name,
+            'user_email' => $newUser->email
+        ]);
+
+        return redirect('/home')->with('success' , 'Vous creer votre compte en succe');
     }
 
     public function logout(Request $request) {
