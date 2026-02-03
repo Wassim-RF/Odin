@@ -9,3 +9,15 @@ export function annulerAddCategorieModal() {
 
     modale_addCategorie_pop.classList.replace("flex" , "hidden");
 }
+
+export function addLienModals() {
+    const modale_addLink_pop = document.getElementById("modale_addLink_pop");
+
+    modale_addLink_pop.classList.replace("hidden" , "flex");
+}
+
+export function annulerAddLienModal() {
+    const modale_addLink_pop = document.getElementById("modale_addLink_pop");
+
+    modale_addLink_pop.classList.replace("flex" , "hidden");
+}

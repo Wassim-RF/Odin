@@ -12,4 +12,8 @@
         public function createCategorie(array $data) {
             return Categories::create($data);
         }
+        
+        public function getUserCategorie() {
+            return Categories::where('user_id' , session('user_id'))->get();
+        }
     }

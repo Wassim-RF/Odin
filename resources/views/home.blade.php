@@ -63,7 +63,7 @@
                 </div>
 
             </button>
-            <button id="addCategorie_Modal_button" class="group w-full h-[200px] bg-white border-2 border-dashed border-gray-200 shadow-sm rounded-2xl cursor-pointer hover:border-[#1B294B] hover:shadow-lg transition-all flex flex-col items-center justify-center gap-3">
+            <button id="addLien_Modal_button" class="group w-full h-[200px] bg-white border-2 border-dashed border-gray-200 shadow-sm rounded-2xl cursor-pointer hover:border-[#1B294B] hover:shadow-lg transition-all flex flex-col items-center justify-center gap-3">
                 <div class="w-14 h-14 bg-[#F1F2F4] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B294B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -80,7 +80,7 @@
 
             </button>
             <button id="addCategorie_Modal_button" class="group w-full h-[200px] bg-white border-2 border-dashed border-gray-200 shadow-sm rounded-2xl cursor-pointer hover:border-[#21C45D] hover:shadow-lg transition-all flex flex-col items-center justify-center gap-3">
-                <div class="w-14 h-14 bg-[#FDF5E6] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 bg-[#E8F9EE] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#21C45D"><g fill="none" stroke="#21C45D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9 5H2v7l6.29 6.29c.94.94 2.48.94 3.42 0l3.58-3.58c.94-.94.94-2.48 0-3.42L9 5ZM6 9.01V9"/><path d="m15 5l6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/></g></svg>
                         <div class="absolute -bottom-2 right-1 bg-[#21C45D] text-white rounded-full w-5 h-5 flex items-center justify-center border-2 border-white text-xs font-bold">
@@ -192,6 +192,7 @@
             </div>
         </div>
         @include('modales.addCategories')
+        @include('modales.addLinks')
     </main>
     <script type="module" src="{{ asset('js/script.js') }}"></script>
 </body>
