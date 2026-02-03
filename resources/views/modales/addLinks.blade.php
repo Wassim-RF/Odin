@@ -1,5 +1,5 @@
 <div class="fixed inset-0 hidden items-center justify-center bg-gray-900/60 backdrop-blur-sm z-50" id="modale_addLink_pop">
-    <form action="#" method="POST" id="link_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
+    <form action="{{ route('create.link') }}" method="POST" id="link_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
         @csrf
         
         <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
