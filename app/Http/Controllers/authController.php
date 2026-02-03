@@ -33,7 +33,6 @@ class authController extends Controller
         }
 
         Auth::login($user);
-
         $loginRequest->session()->regenerate();
 
         session([
