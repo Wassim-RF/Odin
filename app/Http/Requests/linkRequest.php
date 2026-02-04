@@ -26,7 +26,8 @@ class linkRequest extends FormRequest
             'link_url' => 'required|url|max:2048',
             'category_id' => 'required|integer|exists:categories,id',
             'link_tag' => 'nullable|array',
-            'link_tag.*' => 'exists:tags,id'
+            'link_tag.*' => 'exists:tags,id',
+            'link_id' => 'nullable|integer'
         ];
     }
 }

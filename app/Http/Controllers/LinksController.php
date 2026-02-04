@@ -25,6 +25,18 @@ class LinksController extends Controller
         return redirect()->back();
     }
 
+    public function update(linkRequest $linkRequest , LinksServices $linksServices) {
+        $data = [
+            'title' => $linkRequest->link_title,
+            'url' => $linkRequest->link_url,
+            'categories_id' => $linkRequest->category_id
+        ];
+
+        $linksServices->updateLink($linkRequest->link_id , $data);
+
+        return redirect()->back();
+    }
+
     public function destroy(Request $request , LinksServices $linksServices) {
         if($request->link_id) {
             $linksServices->deleteLink($request->link_id);

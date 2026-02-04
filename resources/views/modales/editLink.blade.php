@@ -1,5 +1,5 @@
 <div class="fixed inset-0 hidden items-center justify-center bg-gray-900/60 backdrop-blur-sm z-50" id="modale_editLink_pop">
-    <form action="#" method="POST" id="edit_link_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
+    <form action="{{ route('edit.link') }}" method="POST" id="edit_link_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
         @csrf
         @method('PUT')
         <div class="px-6 py-4 border-b border-gray-100 bg-[#F1F2F4]/50">
@@ -50,6 +50,8 @@
                     <p class="text-xs text-gray-400 italic">Aucun tag disponible.</p>
                 @endif
             </div>
+
+            <input type="hidden" name="link_id" id="edit_link_id">
 
             <div class="pt-4 flex flex-row-reverse gap-3">
                 <button type="submit" class="flex-1 bg-[#1B294B] text-white py-2.5 rounded-xl font-bold hover:bg-[#0F172A] active:scale-95 transition-all shadow-md shadow-gray-300">

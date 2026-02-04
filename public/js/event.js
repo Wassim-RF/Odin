@@ -59,9 +59,8 @@ export function setupEvents() {
 
     if(editLink_Modal_button) {
         editLink_Modal_button.forEach(btn => {
-            btn.addEventListener("click" , () => {
-                console.log("click");
-                editLienModals();
+            btn.addEventListener("click" , (e) => {
+                editLienModals(e.currentTarget);
             });
         });
     }

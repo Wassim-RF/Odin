@@ -20,4 +20,8 @@
         public function deleteLink(int $id) {
             return Links::find($id)->delete();
         }
+
+        public function updateLink(int $id , array $data) {
+            return Links::find($id)->update($data);
+        }
     }

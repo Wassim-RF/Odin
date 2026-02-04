@@ -31,7 +31,7 @@
             @foreach ($categorie->links as $link)
                 <div class="group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-5 hover:shadow-md hover:border-[#1B294B] transition-all flex flex-col justify-between h-full">
                     <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                        <button title="Modifier" class="p-1.5 bg-slate-50 hover:bg-[#F1F2F4] text-slate-400 hover:text-[#1B294B] rounded-lg transition-colors border border-gray-100 editLink_Modal_button">
+                        <button title="Modifier" data-id="{{ $link->id }}" data-title="{{ $link->title }}" data-url="{{ $link->url }}" data-categories_id="{{ $link->categories_id }}"  data-tags='@json($link->tags->pluck("id"))' class="p-1.5 bg-slate-50 hover:bg-[#F1F2F4] text-slate-400 hover:text-[#1B294B] rounded-lg transition-colors border border-gray-100 editLink_Modal_button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                         </button>
                         <form action="{{ route('delete.link') }}" method="POST">

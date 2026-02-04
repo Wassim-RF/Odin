@@ -51,28 +51,34 @@ export function annulerAddLienModal() {
     modale_addLink_pop.classList.replace("flex" , "hidden");
 }
 
-export function editLienModals() {
-    const modale_editLink_pop = document.getElementById("modale_editLink_pop");
+export function editLienModals(button) {
+    const modal = document.getElementById("modale_editLink_pop");
 
-    // const edit_categorie_title = document.getElementById("edit_categorie_title");
-    // const edit_categorie_description = document.getElementById("edit_categorie_description");
-    // const edit_categorie_id = document.getElementById("edit_categorie_id");
+    modal.classList.replace("hidden", "flex");
 
-    // const id = button.dataset.id;
-    // const title = button.dataset.title;
-    // const description = button.dataset.description;
+    const id = button.dataset.id;
+    const title = button.dataset.title;
+    const url = button.dataset.url;
+    const category = button.dataset.category;
+    const tags = JSON.parse(button.dataset.tags || "[]");
 
-    // console.log(id);
-    // console.log(title);
-    // console.log(description);
+    document.getElementById("edit_link_id").value = id;
+    document.getElementById("edit_link_title").value = title;
+    document.getElementById("edit_link_url").value = url;
+    document.querySelectorAll('select[name="category_id"] option').forEach(s => {
+        s.selected = s.value === category;
+    });
 
+    document.querySelectorAll('input[name="link_tag[]"]').forEach(cb => {
+        cb.checked = false;
+    });
 
-    // edit_categorie_id.value = id;
-    // edit_categorie_title.value = title;
-    // edit_categorie_description.value = description;
-
-    modale_editLink_pop.classList.replace("hidden" , "flex");
+    tags.forEach(tagId => {
+        const checkbox = document.getElementById("edit_tag_" + tagId);
+        if (checkbox) checkbox.checked = true;
+    });
 }
+
 
 export function annulerEditLienModal() {
     const modale_editLink_pop = document.getElementById("modale_editLink_pop");
