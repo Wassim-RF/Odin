@@ -10,6 +10,18 @@ export function annulerAddCategorieModal() {
     modale_addCategorie_pop.classList.replace("flex" , "hidden");
 }
 
+export function editCategorieModals() {
+    const modale_editCategorie_pop = document.getElementById("modale_editCategorie_pop");
+
+    modale_editCategorie_pop.classList.replace("hidden" , "flex");
+}
+
+export function annulerEditCategorieModal() {
+    const modale_editCategorie_pop = document.getElementById("modale_editCategorie_pop");
+
+    modale_editCategorie_pop.classList.replace("flex" , "hidden");
+}
+
 export function addLienModals() {
     const modale_addLink_pop = document.getElementById("modale_addLink_pop");
 

@@ -13,7 +13,19 @@
 
         <div class="w-full grid grid-cols-4 gap-7">
             @foreach (auth()->user()->categories as $categorie)
-                <div class="group bg-white border border-gray-200 shadow-sm rounded-2xl p-6 hover:shadow-md hover:border-[#F59F0A] transition-all cursor-pointer">
+                <div class="group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-6 hover:shadow-md hover:border-[#F59F0A] transition-all cursor-pointer">
+                    <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button title="Modifier" data-categorieId="{{ $categorie->id }}" data-categorieTitle="{{ $categorie->title }}" data-categorieDescription="{{ $categorie->description }}" class="p-2 bg-slate-50 hover:bg-blue-50 text-slate-400 hover:text-blue-600 rounded-lg transition-colors border border-gray-100 editCategorie_Modal_button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </button>
+                        <form action="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button title="Supprimer" class="p-2 bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-600 rounded-lg transition-colors border border-gray-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                            </button>
+                        </form>
+                    </div>
                     <div class="w-12 h-12 bg-[#FDF5E6] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
                             <path fill="#F59F0A" d="M2 4.5V6h3.586a.5.5 0 0 0 .353-.146L7.293 4.5L5.939 3.146A.5.5 0 0 0 5.586 3H3.5A1.5 1.5 0 0 0 2 4.5Zm-1 0A2.5 2.5 0 0 1 3.5 2h2.086a1.5 1.5 0 0 1 1.06.44L8.207 4H12.5A2.5 2.5 0 0 1 15 6.5v5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 11.5v-7ZM2 7v4.5A1.5 1.5 0 0 0 3.5 13h9a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 12.5 5H8.207l-1.56 1.56A1.5 1.5 0 0 1 5.585 7H2Z"/>
@@ -23,9 +35,9 @@
                         <h3 class="text-xl font-bold text-[#0F172A]">{{ $categorie->title }}</h3>
                         <p class="text-sm font-medium text-slate-500">{{ $categorie->links()->count() }} Liens enregistrés</p>
                     </div>
-                    <div class="mt-4 flex items-center text-[#F59F0A] font-bold text-sm group-hover:gap-2 transition-all">
-                        Voir les liens <span class="ml-1">→</span>
-                    </div>
+                    <a href="#" class="mt-4 flex items-center text-[#F59F0A] font-bold text-sm group-hover:gap-2 transition-all">
+                        Voir les liens <span class="ml-1 transition-all">→</span>
+                    </a>
                 </div>
             @endforeach
 
@@ -38,6 +50,7 @@
 
         </div>
         @include('modales.addCategories')
+        @include('modales.editCategorie')
     </main>
     <script type="module" src="{{ asset('js/script.js') }}"></script>
 </body>
