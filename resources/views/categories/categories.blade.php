@@ -9,9 +9,6 @@
                 <h1 class="text-2xl font-bold text-[#0F172A] tracking-tight">Mes Catégories</h1>
                 <p class="text-[15px] font-medium text-slate-500">Gérez l'organisation de vos liens</p>
             </div>
-            <button class="bg-[#F59F0A] hover:bg-[#e09109] text-white px-5 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 shadow-sm">
-                <span>+</span> Nouvelle Catégorie
-            </button>
         </div>
 
         <div class="w-full grid grid-cols-4 gap-7">
@@ -32,14 +29,15 @@
                 </div>
             @endforeach
 
-            <div class="w-full h-full border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center p-6 hover:border-[#F59F0A] hover:bg-orange-50/30 transition-all cursor-pointer">
+            <button type="button" id="addCategorie_Modal_button" class="w-full h-full border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center p-6 hover:border-[#F59F0A] hover:bg-orange-50/30 transition-all cursor-pointer">
                 <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm mb-3">
                     <span class="text-[#F59F0A] font-bold text-xl">+</span>
                 </div>
                 <span class="text-sm font-bold text-slate-600">Ajouter une catégorie</span>
-            </div>
+            </button>
 
         </div>
-
+        @include('modales.addCategories')
     </main>
+    <script type="module" src="{{ asset('js/script.js') }}"></script>
 </body>
