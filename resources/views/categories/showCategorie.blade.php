@@ -29,27 +29,30 @@
 
         <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @foreach ($categorie->links as $link)
-                <div class="group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-5 hover:shadow-md hover:border-[#F59F0A] transition-all flex flex-col justify-between h-full">
+                <div class="group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-5 hover:shadow-md hover:border-[#1B294B] transition-all flex flex-col justify-between h-full">
                     <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                        <button title="Modifier" class="p-1.5 bg-slate-50 hover:bg-blue-50 text-slate-400 hover:text-blue-600 rounded-lg transition-colors border border-gray-100">
+                        <button title="Modifier" class="p-1.5 bg-slate-50 hover:bg-[#F1F2F4] text-slate-400 hover:text-[#1B294B] rounded-lg transition-colors border border-gray-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                         </button>
                         <button title="Supprimer" class="p-1.5 bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-600 rounded-lg transition-colors border border-gray-100">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                         </button>
                     </div>
+
                     <div class="mb-4">
                         <h3 class="text-lg font-bold text-[#0F172A] truncate pr-16">{{ $link->title }}</h3> 
-                        <a href="{{ $link->url }}" target="_blank" class="text-xs text-slate-400 hover:text-blue-500 truncate block transition-colors mb-4">{{ $link->url }}</a>
+                        <a href="{{ $link->url }}" target="_blank" class="text-xs text-slate-400 hover:text-[#1B294B] truncate block transition-colors mb-4">{{ $link->url }}</a>
+                        
                         <div class="flex flex-wrap gap-2">
                             @foreach ($link->tags()->limit(3)->get() as $tag)
-                                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-[#F1F2F4] text-[#1B294B] border border-slate-200">
                                     #{{ $tag->name }}
                                 </span>
                             @endforeach
                         </div>
                     </div>
-                    <a href="{{ $link->url }}" target="_blank" class="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-50 text-slate-600 text-sm font-bold hover:bg-[#F59F0A] hover:text-white transition-all group-hover:shadow-sm">
+
+                    <a href="{{ $link->url }}" target="_blank" class="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#F1F2F4] text-[#1B294B] text-sm font-bold hover:bg-[#1B294B] hover:text-white transition-all group-hover:shadow-sm">
                         Visiter le lien
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                     </a>
