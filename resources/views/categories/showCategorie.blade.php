@@ -10,19 +10,61 @@
                 Retour aux catégories
             </a>
 
-            <div class="flex items-center justify-between">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
                     <h1 class="text-3xl font-bold text-[#0F172A] tracking-tight flex items-center gap-3">
                         <span class="w-3 h-8 bg-[#F59F0A] rounded-full inline-block"></span>
-                        {{ $categorie->title }} </h1>
+                        {{ $categorie->title }}
+                    </h1>
                     <p class="text-[15px] font-medium text-slate-500 mt-2 ml-6">
-                        {{ $categorie->description }} </p>
+                        {{ $categorie->description }}
+                    </p>
                 </div>
                 
                 <div class="flex gap-3">
-                    <button data-id="{{ $categorie->id }}" data-title="{{ $categorie->title }}" data-description="{{ $categorie->description }}" class="px-4 py-2 bg-white border border-gray-200 text-slate-600 rounded-xl hover:bg-slate-50 font-medium transition-all shadow-sm editCategorie_Modal_button">
+                    <button data-id="{{ $categorie->id }}" data-title="{{ $categorie->title }}" data-description="{{ $categorie->description }}" class="px-5 py-2.5 bg-white border border-gray-200 text-slate-600 rounded-xl hover:bg-slate-50 font-bold transition-all shadow-sm editCategorie_Modal_button">
                         Modifier la catégorie
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="relative w-full md:w-96">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="searchLink" 
+                        placeholder="Rechercher par titre ou URL..." 
+                        class="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl leading-5 bg-slate-50 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59F0A] focus:border-transparent sm:text-sm transition-all"
+                    >
+                </div>
+
+                <div class="text-sm font-medium text-slate-500">
+                    <span id="resultsCount" class="text-[#0F172A] font-bold">{{ $categorie->links->count() }}</span> liens enregistrés
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <label class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    Filtrer par tags
+                </label>
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-[#F59F0A] text-white border border-[#F59F0A]">
+                        Tous
+                    </button>
+                    
+                    @foreach($categorie->links->flatMap->tags->unique('id') as $tag)
+                        <button class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-white text-slate-600 border border-gray-200 hover:border-[#F59F0A] hover:text-[#F59F0A]">
+                            #{{ $tag->name }}
+                        </button>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -49,7 +91,7 @@
                         <a href="{{ $link->url }}" target="_blank" class="text-xs text-slate-400 hover:text-[#1B294B] truncate block transition-colors mb-4">{{ $link->url }}</a>
                         
                         <div class="flex flex-wrap gap-2">
-                            @foreach ($link->tags()->limit(3)->get() as $tag)
+                            @foreach ($link->tags as $tag)
                                 <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-[#F1F2F4] text-[#1B294B] border border-slate-200">
                                     #{{ $tag->name }}
                                 </span>
@@ -64,13 +106,12 @@
                 </div>
             @endforeach
 
-            <button type="button" id="addLien_Modal_button" class="group h-full min-h-40 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center p-6 hover:border-[#F59F0A] hover:bg-orange-50/30 transition-all cursor-pointer">
+            <button type="button" id="addLien_Modal_button" class="group h-full min-h-[220px] border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center p-6 hover:border-[#F59F0A] hover:bg-orange-50/30 transition-all cursor-pointer">
                 <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform">
                     <span class="text-[#F59F0A] font-bold text-2xl">+</span>
                 </div>
                 <span class="text-sm font-bold text-slate-600 group-hover:text-[#F59F0A] transition-colors">Ajouter un lien</span>
             </button>
-
         </div>
         
         @include('modales.addLinks')

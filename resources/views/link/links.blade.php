@@ -11,6 +11,53 @@
             </div>
         </div>
 
+        <div class="flex flex-col gap-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="relative w-full md:w-96">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="searchLinkInput" 
+                        placeholder="Rechercher un titre ou URL..." 
+                        class="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl leading-5 bg-slate-50 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1B294B] focus:border-transparent sm:text-sm transition-all"
+                    >
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <label class="text-sm font-bold text-slate-600">Catégorie:</label>
+                    <select id="filterCategory" class="bg-slate-50 border border-gray-200 text-slate-600 text-sm rounded-xl focus:ring-[#1B294B] focus:border-[#1B294B] block w-full md:w-48 p-2.5 outline-none transition-all">
+                        <option value="all">Toutes les catégories</option>
+                        @foreach(auth()->user()->categories as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <hr class="border-gray-100">
+
+            <div class="flex flex-col gap-3">
+                <label class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    Filtrer par tags
+                </label>
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-[#1B294B] text-white border border-[#1B294B]">
+                        Tous
+                    </button>
+                    @foreach(auth()->user()->links->flatMap->tags->unique('id') as $tag)
+                        <button class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-white text-slate-600 border border-gray-200 hover:border-[#1B294B] hover:text-[#1B294B]">
+                            #{{ $tag->name }}
+                        </button>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
         <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
             @foreach (auth()->user()->links as $link)
                 <div class="group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-5 hover:shadow-md transition-all cursor-pointer">
@@ -38,21 +85,23 @@
                     <div class="space-y-1">
                         <h3 class="text-lg font-bold text-[#0F172A] tracking-tight truncate">{{ $link->title }}</h3>
                         <p class="text-[14px] font-medium text-slate-500 truncate">{{ $link->url }}</p>
+                        <span class="inline-block mt-2 text-[10px] uppercase tracking-widest font-bold text-[#1B294B] bg-[#F1F2F4] px-2 py-0.5 rounded">
+                            {{ $link->category->title ?? 'Sans catégorie' }}
+                        </span>
                     </div>
 
-                    <a href="{{ $link->url }}" class="mt-4 flex items-center text-[#1B294B] font-bold text-xs hover:gap-2 transition-all">
+                    <a href="{{ $link->url }}" target="_blank" class="mt-4 flex items-center text-[#1B294B] font-bold text-xs hover:gap-2 transition-all">
                         Visiter le lien <span class="ml-1">→</span>
                     </a>
                 </div>
             @endforeach
 
-            <button id="addLien_Modal_button" class="w-full h-full border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center p-6 hover:border-[#1B294B] hover:bg-slate-50 transition-all cursor-pointer group">
+            <button id="addLien_Modal_button" class="w-full min-h-[200px] border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center p-6 hover:border-[#1B294B] hover:bg-slate-50 transition-all cursor-pointer group">
                 <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform">
                     <span class="text-[#1B294B] font-bold text-xl">+</span>
                 </div>
                 <span class="text-sm font-bold text-slate-600">Nouveau Lien</span>
             </button>
-
         </div>
 
         @include('modales.addLinks')
