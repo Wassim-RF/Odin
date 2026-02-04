@@ -8,6 +8,10 @@ use App\Services\TagServices;
 
 class TagsController extends Controller
 {
+    public function index() {
+        return view('tags.tags');
+    }
+
     public function store(tagRequest $tagRequest , TagServices $tagServices) {
         $data = [
             'name' => $tagRequest->tag_name,

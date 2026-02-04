@@ -16,7 +16,7 @@
             <a href="/home" class="px-3 py-2 text-sm font-medium {{ request()->is('home') ? 'text-gray-900 border-b-2 border-[#F59F0A]' : 'text-gray-500 hover:text-[#F59F0A] transition-colors' }}">Acceil</a>
             <a href="/categories" class="px-3 py-2 text-sm font-medium {{ request()->is('categories') ? 'text-gray-900 border-b-2 border-[#F59F0A]' : 'text-gray-500 hover:text-[#F59F0A] transition-colors' }}">Catégories</a>
             <a href="/links" class="px-3 py-2 text-sm font-medium {{ request()->is('links') ? 'text-gray-900 border-b-2 border-[#F59F0A]' : 'text-gray-500 hover:text-[#F59F0A] transition-colors' }}">Liens</a>
-            <a href="#" class="px-3 py-2 text-sm font-medium {{ request()->is('tags') ? 'text-gray-900 border-b-2 border-[#F59F0A]' : 'text-gray-500 hover:text-[#F59F0A] transition-colors' }}">Tags</a>
+            <a href="/tags" class="px-3 py-2 text-sm font-medium {{ request()->is('tags') ? 'text-gray-900 border-b-2 border-[#F59F0A]' : 'text-gray-500 hover:text-[#F59F0A] transition-colors' }}">Tags</a>
         </nav>
 
         <form action="{{ route('auth.logout') }}" method="POST" class="flex items-center">
