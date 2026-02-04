@@ -3,7 +3,9 @@ import {editCategorieModals} from './mod/showModales.js';
 import {annulerAddCategorieModal} from './mod/showModales.js';
 import {annulerEditCategorieModal} from './mod/showModales.js';
 import {addLienModals} from './mod/showModales.js';
+import {editLienModals} from './mod/showModales.js';
 import {annulerAddLienModal} from './mod/showModales.js';
+import {annulerEditLienModal} from './mod/showModales.js';
 import {addTagModals} from './mod/showModales.js';
 import {annulerAddTagModal} from './mod/showModales.js';
 
@@ -13,7 +15,9 @@ export function setupEvents() {
     const annuler_addCategorie_Button = document.getElementById("annuler_addCategorie_Button");
     const annuler_editCategorie_Button = document.getElementById("annuler_editCategorie_Button");
     const addLien_Modal_button = document.getElementById("addLien_Modal_button");
+    const editLink_Modal_button = document.querySelectorAll(".editLink_Modal_button");
     const annuler_addLink_Button = document.getElementById("annuler_addLink_Button");
+    const annuler_editLink_Button = document.getElementById("annuler_editLink_Button");
     const addTag_Modal_button = document.getElementById("addTag_Modal_button");
     const annuler_addTag_Button = document.getElementById("annuler_addTag_Button");
     
@@ -51,5 +55,18 @@ export function setupEvents() {
 
     if(annuler_editCategorie_Button) {
         annuler_editCategorie_Button.addEventListener("click" , annulerEditCategorieModal);
+    }
+
+    if(editLink_Modal_button) {
+        editLink_Modal_button.forEach(btn => {
+            btn.addEventListener("click" , () => {
+                console.log("click");
+                editLienModals();
+            });
+        });
+    }
+
+    if(annuler_editLink_Button) {
+        annuler_editLink_Button.addEventListener("click" , annulerEditLienModal);
     }
 }

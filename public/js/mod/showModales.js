@@ -51,6 +51,35 @@ export function annulerAddLienModal() {
     modale_addLink_pop.classList.replace("flex" , "hidden");
 }
 
+export function editLienModals() {
+    const modale_editLink_pop = document.getElementById("modale_editLink_pop");
+
+    // const edit_categorie_title = document.getElementById("edit_categorie_title");
+    // const edit_categorie_description = document.getElementById("edit_categorie_description");
+    // const edit_categorie_id = document.getElementById("edit_categorie_id");
+
+    // const id = button.dataset.id;
+    // const title = button.dataset.title;
+    // const description = button.dataset.description;
+
+    // console.log(id);
+    // console.log(title);
+    // console.log(description);
+
+
+    // edit_categorie_id.value = id;
+    // edit_categorie_title.value = title;
+    // edit_categorie_description.value = description;
+
+    modale_editLink_pop.classList.replace("hidden" , "flex");
+}
+
+export function annulerEditLienModal() {
+    const modale_editLink_pop = document.getElementById("modale_editLink_pop");
+
+    modale_editLink_pop.classList.replace("flex" , "hidden");
+}
+
 export function addTagModals() {
     const modale_addTag_pop = document.getElementById("modale_addTag_pop");
 
