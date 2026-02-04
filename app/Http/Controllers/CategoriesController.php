@@ -23,4 +23,15 @@ class CategoriesController extends Controller
 
         return redirect()->back()->with('success' , 'La categorie est creer en success');
     }
+
+    public function update(categorieRequest $categorieRequest , CategorieServices $categorieServices) {
+        $data = [
+            'title' => $categorieRequest->categorie_title,
+            'description' => $categorieRequest->categorie_description
+        ];
+
+        $categorieServices->updateCategorie($categorieRequest->categorie_id , $data);
+
+        return redirect()->back();
+    }
 }

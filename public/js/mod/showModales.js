@@ -10,8 +10,25 @@ export function annulerAddCategorieModal() {
     modale_addCategorie_pop.classList.replace("flex" , "hidden");
 }
 
-export function editCategorieModals() {
+export function editCategorieModals(button) {
     const modale_editCategorie_pop = document.getElementById("modale_editCategorie_pop");
+
+    const edit_categorie_title = document.getElementById("edit_categorie_title");
+    const edit_categorie_description = document.getElementById("edit_categorie_description");
+    const edit_categorie_id = document.getElementById("edit_categorie_id");
+
+    const id = button.dataset.id;
+    const title = button.dataset.title;
+    const description = button.dataset.description;
+
+    console.log(id);
+    console.log(title);
+    console.log(description);
+
+
+    edit_categorie_id.value = id;
+    edit_categorie_title.value = title;
+    edit_categorie_description.value = description;
 
     modale_editCategorie_pop.classList.replace("hidden" , "flex");
 }

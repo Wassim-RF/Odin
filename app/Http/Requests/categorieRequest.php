@@ -23,7 +23,8 @@ class categorieRequest extends FormRequest
     {
         return [
             'categorie_title' => 'required|string|max:50',
-            'categorie_description' => 'nullable|string|max:255'
+            'categorie_description' => 'nullable|string|max:255',
+            'categorie_id' => 'nullable|int'
         ];
     }
 }

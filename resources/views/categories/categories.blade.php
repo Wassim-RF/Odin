@@ -15,7 +15,7 @@
             @foreach (auth()->user()->categories as $categorie)
                 <div class="group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-6 hover:shadow-md hover:border-[#F59F0A] transition-all cursor-pointer">
                     <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button title="Modifier" data-categorieId="{{ $categorie->id }}" data-categorieTitle="{{ $categorie->title }}" data-categorieDescription="{{ $categorie->description }}" class="p-2 bg-slate-50 hover:bg-blue-50 text-slate-400 hover:text-blue-600 rounded-lg transition-colors border border-gray-100 editCategorie_Modal_button">
+                        <button title="Modifier" data-id="{{ $categorie->id }}" data-title="{{ $categorie->title }}" data-description="{{ $categorie->description }}" class="p-2 bg-slate-50 hover:bg-blue-50 text-slate-400 hover:text-blue-600 rounded-lg transition-colors border border-gray-100 editCategorie_Modal_button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                         </button>
                         <form action="POST">

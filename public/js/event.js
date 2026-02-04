@@ -43,7 +43,9 @@ export function setupEvents() {
 
     if(editCategorie_Modal_button) {
         editCategorie_Modal_button.forEach(btn => {
-            btn.addEventListener("click" , editCategorieModals);
+            btn.addEventListener("click" , (e) => {
+                editCategorieModals(e.currentTarget);
+            });
         });
     }
 

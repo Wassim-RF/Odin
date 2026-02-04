@@ -16,4 +16,8 @@
         public function getUserCategorie() {
             return Categories::where('user_id' , session('user_id'))->get();
         }
+
+        public function updateCategorie(int $id , array $data) {
+            return Categories::find($id)->update($data);
+        }
     }

@@ -1,5 +1,5 @@
 <div class="fixed inset-0 hidden items-center justify-center bg-gray-900/60 backdrop-blur-sm z-50" id="modale_editCategorie_pop">
-    <form action="#" method="POST" id="edit_categorie_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
+    <form action="{{ route('edit.categorie') }}" method="POST" id="edit_categorie_form" class="w-[450px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all">
         @csrf
         @method('PUT')
         
@@ -24,6 +24,8 @@
                     class="block w-full rounded-xl border-gray-300 border px-4 py-2.5 text-gray-900 shadow-sm focus:border-[#F59F0A] focus:ring-4 focus:ring-[#F59F0A]/10 transition-all outline-none sm:text-sm" 
                     placeholder="Modifier la description..."></textarea>
             </div>
+
+            <input type="hidden" id="edit_categorie_id" name="categorie_id">
 
             <div class="pt-4 flex flex-row-reverse gap-3">
                 <button type="submit" class="flex-1 bg-[#F59F0A] text-white py-2.5 rounded-xl font-bold hover:bg-[#e09109] active:scale-95 transition-all shadow-md shadow-orange-100">

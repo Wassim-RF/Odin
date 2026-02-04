@@ -35,6 +35,7 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::post('/addTag' , [TagsController::class , 'store'])->name('create.tag');
 
     //put
+    Route::put('/editCategorie' , [CategoriesController::class , 'update'])->name('edit.categorie');
 
     //delete
 });
