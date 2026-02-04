@@ -34,4 +34,12 @@ class CategoriesController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Request $request , CategorieServices $categorieServices) {
+        if($request->categorie_id) {
+            $categorieServices->deleteCategorie($request->categorie_id);
+            return redirect()->back();
+        }
+        return redirect()->back();
+    }
 }

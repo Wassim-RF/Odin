@@ -20,4 +20,8 @@
         public function updateCategorie(int $id , array $data) {
             return Categories::find($id)->update($data);
         }
+
+        public function deleteCategorie(int $id) {
+            return Categories::find($id)->delete();
+        }
     }

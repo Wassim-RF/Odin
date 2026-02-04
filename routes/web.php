@@ -38,4 +38,5 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::put('/editCategorie' , [CategoriesController::class , 'update'])->name('edit.categorie');
 
     //delete
+    Route::delete('/deleteCategorie' , [CategoriesController::class , 'destroy'])->name('delete.categorie');
 });
