@@ -8,6 +8,10 @@ use App\Services\LinksServices;
 
 class LinksController extends Controller
 {
+    public function index() {
+        return view('link.links');
+    }
+
     public function store(linkRequest $linkRequest , LinksServices $linksServices) {
         $data = [
             'title' => $linkRequest->link_title,
