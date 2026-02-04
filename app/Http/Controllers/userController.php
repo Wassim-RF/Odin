@@ -17,7 +17,8 @@ class userController extends Controller
         $linkNumber = $linksServices->linkNumber();
         $categorieNumber = $categorieServices->categorieNumber();
         $tagNumber = $tagServices->tagNumber();
-        return view('home' , compact('linkNumber' , 'categorieNumber' , 'tagNumber'));
+        $linkInLastMounth = $linksServices->linkInMounth();
+        return view('home' , compact('linkNumber' , 'categorieNumber' , 'tagNumber' , 'linkInLastMounth'));
     }
 
 }

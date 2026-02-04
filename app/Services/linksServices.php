@@ -12,4 +12,8 @@
         public function createLink(array $data) {
             return Links::create($data);
         }
+
+        public function linkInMounth() {
+            return Links::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->where('user_id' , session('user_id'))->count();
+        }
     }

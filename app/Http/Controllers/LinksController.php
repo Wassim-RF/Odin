@@ -16,7 +16,11 @@ class LinksController extends Controller
             'user_id' => auth()->user()->id
         ];
 
-        $linksServices->createLink($data);
+        $link = $linksServices->createLink($data);
+
+        if ($linkRequest->filled('link_tag')) {
+            $link->tags()->attach($linkRequest->link_tag);
+        }
 
         return redirect()->back();
     }

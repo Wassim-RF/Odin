@@ -19,7 +19,7 @@
                 <label for="categorie_description" class="block text-sm font-semibold text-gray-700 mb-1.5">
                     Description <span class="text-red-500">*</span>
                 </label>
-                <textarea id="categorie_description" name="categorie_description" rows="3" required
+                <textarea id="categorie_description" name="categorie_description" rows="3"
                     class="block w-full rounded-xl border-gray-300 border px-4 py-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none sm:text-sm" 
                     placeholder="Ex: TikTok, Instagram, Twitter..."></textarea>
             </div>

@@ -38,7 +38,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path fill="#0DA2E7" d="M200 64v104a8 8 0 0 1-16 0V83.31L69.66 197.66a8 8 0 0 1-11.32-11.32L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
                 </div>
                 <div class="space-y-1">
-                    <h3 class="text-3xl font-bold text-[#0F172A] tracking-tight">5</h3>
+                    <h3 class="text-3xl font-bold text-[#0F172A] tracking-tight">{{ $linkInLastMounth }}</h3>
                     <p class="text-[15px] font-medium text-slate-500">Total Links</p>
                 </div>
                 
@@ -120,7 +120,10 @@
                                     </a>
                                 </div>
                             </div>
-                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 border border-gray-200">Tools</span>
+                            @foreach ($link->tags()->latest()->limit(3)->get() as $linkTag)
+                                
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 border border-gray-200">{{ $linkTag->name }}</span>
+                            @endforeach
                         </li>
                     @endforeach
                 </ul>
@@ -142,7 +145,7 @@
                         <div class="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-full border border-indigo-100 text-sm font-medium hover:bg-indigo-100 transition cursor-pointer">
                             <span>#{{ $tag->name }}</span>
                             <span class="text-xs bg-white text-gray-500 px-2 py-0.5 rounded-full border border-gray-200">
-                                {{ 5 }}
+                                {{ $tag->links()->count() }}
                             </span>
                         </div>
                     @endforeach

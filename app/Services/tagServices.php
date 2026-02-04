@@ -12,4 +12,6 @@
         public function createTag(array $data) {
             return Tags::create($data);
         }
+
+        public function tagLinkNumber() {}
     }

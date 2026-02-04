@@ -33,6 +33,24 @@
                 </select>
             </div>
 
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Sélectionner des tags</label>
+                @if(auth()->user()->tags->count() > 0)
+                    <div class="flex flex-wrap gap-2 max-h-32 overflow-y-auto pr-1 custom-scrollbar">
+                        @foreach(auth()->user()->tags as $tag)
+                            <label class="cursor-pointer relative group">
+                                <input type="checkbox" name="link_tag[]" value="{{ $tag->id }}" class="peer sr-only">
+                                <span class="inline-block px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-gray-50 text-gray-600 transition-all  group-hover:bg-gray-100 peer-checked:bg-blue-50 peer-checked:text-blue-600 peer-checked:border-blue-200 peer-checked:ring-1 peer-checked:ring-blue-400">
+                                    #{{ $tag->name }}
+                                </span>
+                            </label>
+                        @endforeach
+                    </div>
+                @else
+                    <p class="text-xs text-gray-400 italic">Aucun tag disponible.</p>
+                @endif
+            </div>
+
             <div class="pt-4 flex flex-row-reverse gap-3">
                 <button type="submit" class="flex-1 bg-blue-600 text-white py-2.5 rounded-xl font-bold hover:bg-blue-700 active:scale-95 transition-all shadow-md shadow-blue-200">
                     Ajouter le lien
