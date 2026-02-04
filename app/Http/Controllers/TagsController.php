@@ -22,4 +22,12 @@ class TagsController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Request $request , TagServices $tagServices) {
+        if($request->tag_id) {
+            $tagServices->deleteTag($request->tag_id);
+            return redirect()->back();
+        }
+        return redirect()->back();
+    }
 }

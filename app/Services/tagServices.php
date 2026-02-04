@@ -13,5 +13,7 @@
             return Tags::create($data);
         }
 
-        public function tagLinkNumber() {}
+        public function deleteTag(int $id) {
+            return Tags::find($id)->delete();
+        }
     }

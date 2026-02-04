@@ -44,4 +44,5 @@ Route::middleware(Authenticate::class)->group(function () {
     //delete
     Route::delete('/deleteCategorie' , [CategoriesController::class , 'destroy'])->name('delete.categorie');
     Route::delete('/deleteLink' , [LinksController::class , 'destroy'])->name('delete.link');
+    Route::delete('/deleteTag' , [TagsController::class , 'destroy'])->name('delete.tag');
 });
