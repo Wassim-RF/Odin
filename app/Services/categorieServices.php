@@ -24,4 +24,8 @@
         public function deleteCategorie(int $id) {
             return Categories::find($id)->delete();
         }
+
+        public function getCategorieByTitle($title) {
+            return Categories::where('title' , $title)->first();
+        }
     }

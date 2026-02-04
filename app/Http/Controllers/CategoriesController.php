@@ -12,6 +12,11 @@ class CategoriesController extends Controller
         return view('categories.categories');
     }
 
+    public function showCategorie($title , CategorieServices $categorieServices) {
+        $categorie = $categorieServices->getCategorieByTitle($title);
+        return view('categories.showCategorie' , compact('categorie'));
+    }
+
     public function store(categorieRequest $categorieRequest , CategorieServices $categorieServices) {
         $data = [
             'title' => $categorieRequest->categorie_title,
