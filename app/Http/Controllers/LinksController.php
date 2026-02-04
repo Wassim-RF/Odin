@@ -12,7 +12,7 @@ class LinksController extends Controller
         $data = [
             'title' => $linkRequest->link_title,
             'url' => $linkRequest->link_url,
-            'categorie_id' => $linkRequest->category_id,
+            'categories_id' => $linkRequest->category_id,
             'user_id' => auth()->user()->id
         ];
 

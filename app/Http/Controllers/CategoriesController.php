@@ -8,7 +8,7 @@ use App\Http\Requests\categorieRequest;
 
 class CategoriesController extends Controller
 {
-    public function index() {
+    public function index(CategorieServices $categorieServices) {
         return view('categories.categories');
     }
 

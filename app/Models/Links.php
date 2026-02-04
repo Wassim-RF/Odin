@@ -9,7 +9,7 @@ class Links extends Model
     protected $fillable = [
         'title',
         'url',
-        'categorie_id',
+        'categories_id',
         'user_id'
     ];
     
