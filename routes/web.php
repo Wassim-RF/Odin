@@ -27,7 +27,7 @@ Route::middleware(Authenticate::class)->group(function () {
     //get
     Route::get('/home' , [userController::class , 'showHome'])->middleware(CheckAccountStatus::class);
     Route::get('/categories' , [CategoriesController::class , 'index'])->middleware(CheckAccountStatus::class);
-    Route::get('/categorie/{title}' , [CategoriesController::class , 'showCategorie'])->middleware(CheckAccountStatus::class);
+    Route::get('/categorie/{id}' , [CategoriesController::class , 'showCategorie'])->middleware(CheckAccountStatus::class);
 
     //post
     Route::post('/logout' , [authController::class , "logout"])->name('auth.logout');

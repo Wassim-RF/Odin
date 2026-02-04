@@ -20,7 +20,7 @@
                 </div>
                 
                 <div class="flex gap-3">
-                    <button class="px-4 py-2 bg-white border border-gray-200 text-slate-600 rounded-xl hover:bg-slate-50 font-medium transition-all shadow-sm">
+                    <button data-id="{{ $categorie->id }}" data-title="{{ $categorie->title }}" data-description="{{ $categorie->description }}" class="px-4 py-2 bg-white border border-gray-200 text-slate-600 rounded-xl hover:bg-slate-50 font-medium transition-all shadow-sm editCategorie_Modal_button">
                         Modifier la catégorie
                     </button>
                 </div>
@@ -66,6 +66,7 @@
         </div>
         
         @include('modales.addLinks')
+        @include('modales.editCategorie')
 
     </main>
     <script type="module" src="{{ asset('js/script.js') }}"></script>

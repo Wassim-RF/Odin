@@ -25,7 +25,7 @@
             return Categories::find($id)->delete();
         }
 
-        public function getCategorieByTitle($title) {
-            return Categories::where('title' , $title)->first();
+        public function getCategorieByTitle(int $id) {
+            return Categories::find($id);
         }
     }

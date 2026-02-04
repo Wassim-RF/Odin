@@ -36,7 +36,7 @@
                         <h3 class="text-xl font-bold text-[#0F172A]">{{ $categorie->title }}</h3>
                         <p class="text-sm font-medium text-slate-500">{{ $categorie->links()->count() }} Liens enregistrés</p>
                     </div>
-                    <a href="/categorie/{{ $categorie->title }}" class="mt-4 flex items-center text-[#F59F0A] font-bold text-sm group-hover:gap-2 transition-all">
+                    <a href="/categorie/{{ $categorie->id }}" class="mt-4 flex items-center text-[#F59F0A] font-bold text-sm group-hover:gap-2 transition-all">
                         Voir les liens <span class="ml-1 transition-all">→</span>
                     </a>
                 </div>
