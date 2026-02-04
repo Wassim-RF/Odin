@@ -8,6 +8,10 @@ use App\Http\Requests\categorieRequest;
 
 class CategoriesController extends Controller
 {
+    public function index() {
+        return view('categories.categories');
+    }
+
     public function store(categorieRequest $categorieRequest , CategorieServices $categorieServices) {
         $data = [
             'title' => $categorieRequest->categorie_title,

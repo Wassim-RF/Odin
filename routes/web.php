@@ -26,6 +26,7 @@ Route::post('/register' , [authController::class , "register"])->name('auth.regi
 Route::middleware(Authenticate::class)->group(function () {
     //get
     Route::get('/home' , [userController::class , 'showHome'])->middleware(CheckAccountStatus::class);
+    Route::get('/categories' , [CategoriesController::class , 'index'])->middleware(CheckAccountStatus::class);
 
     //post
     Route::post('/logout' , [authController::class , "logout"])->name('auth.logout');
