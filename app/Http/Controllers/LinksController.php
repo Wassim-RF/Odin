@@ -24,4 +24,13 @@ class LinksController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Request $request , LinksServices $linksServices) {
+        if($request->link_id) {
+            $linksServices->deleteLink($request->link_id);
+            return redirect()->back();
+        }
+
+        return redirect()->back();
+    }
 }

@@ -16,4 +16,8 @@
         public function linkInMounth() {
             return Links::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->where('user_id' , session('user_id'))->count();
         }
+
+        public function deleteLink(int $id) {
+            return Links::find($id)->delete();
+        }
     }
