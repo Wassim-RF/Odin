@@ -36,6 +36,6 @@
                 })
                 ->withCount('links')
                 ->latest()
-                ->paginate(12);
+                ->get();
         }
     }

@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col gap-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+        <form method="GET" action="{{ route('links.index') }}" class="flex flex-col gap-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div class="relative w-full md:w-96">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -21,18 +21,21 @@
                     </div>
                     <input 
                         type="text" 
-                        id="searchLinkInput" 
-                        placeholder="Rechercher un titre ou URL..." 
+                        name="search"
+                        value="{{ request('search') }}"
+                        placeholder="Rechercher un titre ou URL..."
                         class="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl leading-5 bg-slate-50 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1B294B] focus:border-transparent sm:text-sm transition-all"
                     >
                 </div>
 
                 <div class="flex items-center gap-3">
                     <label class="text-sm font-bold text-slate-600">Catégorie:</label>
-                    <select id="filterCategory" class="bg-slate-50 border border-gray-200 text-slate-600 text-sm rounded-xl focus:ring-[#1B294B] focus:border-[#1B294B] block w-full md:w-48 p-2.5 outline-none transition-all">
+                    <select name="category" class="bg-slate-50 border border-gray-200 text-slate-600 text-sm rounded-xl focus:ring-[#1B294B] focus:border-[#1B294B] block w-full md:w-48 p-2.5 outline-none transition-all">
                         <option value="all">Toutes les catégories</option>
                         @foreach(auth()->user()->categories as $cat)
-                            <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                            <option value="{{ $cat->id }}" {{ request('category') == $cat->id ? 'selected' : '' }}>
+                                {{ $cat->title }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -49,17 +52,18 @@
                     <button class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-[#1B294B] text-white border border-[#1B294B]">
                         Tous
                     </button>
-                    @foreach(auth()->user()->links->flatMap->tags->unique('id') as $tag)
-                        <button class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-white text-slate-600 border border-gray-200 hover:border-[#1B294B] hover:text-[#1B294B]">
+                    @foreach(auth()->user()->links()->with('tags')->get()->flatMap->tags->unique('id') as $tag)
+                        <a href="{{ route('links.index', ['tag' => $tag->id]) }}"
+                        class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all {{ request('tag') == $tag->id ? 'bg-[#1B294B] text-white border border-[#1B294B]' : 'bg-white text-slate-600 border border-gray-200 hover:border-[#1B294B] hover:text-[#1B294B]' }}">
                             #{{ $tag->name }}
-                        </button>
+                        </a>
                     @endforeach
                 </div>
             </div>
-        </div>
+        </form>
 
         <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
-            @foreach (auth()->user()->links as $link)
+            @foreach ($links as $link)
                 <div class="group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-5 hover:shadow-md transition-all cursor-pointer">
                     <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button title="Modifier" data-id="{{ $link->id }}" data-title="{{ $link->title }}" data-url="{{ $link->url }}" data-categories_id="{{ $link->categories_id }}"  data-tags='@json($link->tags->pluck("id"))' class="p-1.5 bg-slate-50 hover:bg-[#F1F2F4] text-slate-400 hover:text-[#1B294B] rounded-lg transition-colors border border-gray-100 editLink_Modal_button">

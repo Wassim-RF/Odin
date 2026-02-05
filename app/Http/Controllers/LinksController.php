@@ -8,8 +8,14 @@ use App\Services\LinksServices;
 
 class LinksController extends Controller
 {
-    public function index() {
-        return view('link.links');
+    public function index(Request $request, LinksServices $linkServices){
+        $links = $linkServices->getUserLinksFiltered(
+            $request->search,
+            $request->category,
+            $request->tag
+        );
+
+        return view('link.links', compact('links'));
     }
 
     public function store(linkRequest $linkRequest , LinksServices $linksServices) {

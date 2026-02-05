@@ -28,7 +28,7 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::get('/home' , [userController::class , 'showHome'])->middleware(CheckAccountStatus::class);
     Route::get('/categories' , [CategoriesController::class , 'index'])->middleware(CheckAccountStatus::class)->name('categories.index');
     Route::get('/categorie/{id}' , [CategoriesController::class , 'showCategorie'])->middleware(CheckAccountStatus::class);
-    Route::get('/links' , [LinksController::class , 'index'])->middleware(CheckAccountStatus::class);
+    Route::get('/links' , [LinksController::class , 'index'])->middleware(CheckAccountStatus::class)->name('links.index');
     Route::get('/tags' , [TagsController::class , 'index'])->middleware(CheckAccountStatus::class);
 
     //post

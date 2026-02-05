@@ -9,9 +9,6 @@ import {annulerEditLienModal} from './mod/showModales.js';
 import {addTagModals} from './mod/showModales.js';
 import {annulerAddTagModal} from './mod/showModales.js';
 
-// Filtrage And Cherche
-import {chercheCategorie} from './mod/filtrageAndCherche.js';
-
 export function setupEvents() {
     const addCategorie_Modal_button = document.getElementById("addCategorie_Modal_button");
     const editCategorie_Modal_button = document.querySelectorAll(".editCategorie_Modal_button");
@@ -71,7 +68,4 @@ export function setupEvents() {
     if(annuler_editLink_Button) {
         annuler_editLink_Button.addEventListener("click" , annulerEditLienModal);
     }
-
-    // Filtrage and Cherche
-    document.addEventListener("DOMContentLoaded" , chercheCategorie)
 }
