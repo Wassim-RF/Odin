@@ -86,7 +86,7 @@
                         <h3 class="text-lg font-bold text-[#0F172A] tracking-tight truncate">{{ $link->title }}</h3>
                         <p class="text-[14px] font-medium text-slate-500 truncate">{{ $link->url }}</p>
                         <span class="inline-block mt-2 text-[10px] uppercase tracking-widest font-bold text-[#1B294B] bg-[#F1F2F4] px-2 py-0.5 rounded">
-                            {{ $link->category->title ?? 'Sans catégorie' }}
+                            {{ $link->categorie->title ?? "No Categorie" }}
                         </span>
                     </div>
 

@@ -26,7 +26,7 @@ Route::post('/register' , [authController::class , "register"])->name('auth.regi
 Route::middleware(Authenticate::class)->group(function () {
     //get
     Route::get('/home' , [userController::class , 'showHome'])->middleware(CheckAccountStatus::class);
-    Route::get('/categories' , [CategoriesController::class , 'index'])->middleware(CheckAccountStatus::class);
+    Route::get('/categories' , [CategoriesController::class , 'index'])->middleware(CheckAccountStatus::class)->name('categories.index');
     Route::get('/categorie/{id}' , [CategoriesController::class , 'showCategorie'])->middleware(CheckAccountStatus::class);
     Route::get('/links' , [LinksController::class , 'index'])->middleware(CheckAccountStatus::class);
     Route::get('/tags' , [TagsController::class , 'index'])->middleware(CheckAccountStatus::class);

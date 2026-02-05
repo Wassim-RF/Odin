@@ -28,4 +28,14 @@
         public function getCategorieByTitle(int $id) {
             return Categories::find($id);
         }
+
+        public function getUserCategoriesWithSearch($search = null) {
+            return auth()->user()->categories()
+                ->when($search, function ($query) use ($search) {
+                    $query->where('title', 'LIKE', "%{$search}%");
+                })
+                ->withCount('links')
+                ->latest()
+                ->paginate(12);
+        }
     }

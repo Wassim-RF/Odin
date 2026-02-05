@@ -10,23 +10,25 @@
                 <p class="text-[15px] font-medium text-slate-500">Gérez l'organisation de vos liens</p>
             </div>
 
-            <div class="relative w-full md:w-80">
+            <form method="GET" action="{{ route('categories.index') }}" class="relative w-full md:w-80">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg class="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
                 <input 
-                    type="text" 
-                    id="searchCategory" 
+                    type="search" 
+                    name="search"
+                    id="searchCategory"
+                    value="{{ request('search') }}" 
                     placeholder="Rechercher une catégorie..." 
                     class="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#F59F0A] focus:border-transparent sm:text-sm transition-all shadow-sm"
                 >
-            </div>
+            </form>
         </div>
 
         <div id="categoriesGrid" class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
-            @foreach (auth()->user()->categories as $categorie)
+            @foreach ($categories as $categorie)
                 <div class="category-card group relative bg-white border border-gray-200 shadow-sm rounded-2xl p-6 hover:shadow-md hover:border-[#F59F0A] transition-all cursor-pointer">
                     <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button title="Modifier" data-id="{{ $categorie->id }}" data-title="{{ $categorie->title }}" data-description="{{ $categorie->description }}" class="p-2 bg-slate-50 hover:bg-blue-50 text-slate-400 hover:text-blue-600 rounded-lg transition-colors border border-gray-100 editCategorie_Modal_button">
@@ -50,7 +52,7 @@
 
                     <div class="space-y-1">
                         <h3 class="category-title text-xl font-bold text-[#0F172A]">{{ $categorie->title }}</h3>
-                        <p class="text-sm font-medium text-slate-500">{{ $categorie->links()->count() }} Liens enregistrés</p>
+                        <p class="text-sm font-medium text-slate-500">{{ $categorie->links_count }} Liens enregistrés</p>
                     </div>
 
                     <a href="/categorie/{{ $categorie->id }}" class="mt-4 flex items-center text-[#F59F0A] font-bold text-sm group-hover:gap-2 transition-all">

@@ -8,8 +8,10 @@ use App\Http\Requests\categorieRequest;
 
 class CategoriesController extends Controller
 {
-    public function index(CategorieServices $categorieServices) {
-        return view('categories.categories');
+    public function index(Request $request, CategorieServices $categorieServices) {
+    $categories = $categorieServices->getUserCategoriesWithSearch($request->search);
+
+    return view('categories.categories', compact('categories'));
     }
 
     public function showCategorie($id , CategorieServices $categorieServices) {
